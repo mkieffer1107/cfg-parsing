@@ -1,0 +1,114 @@
+I have rearranged the CNF output of the L0 grammar
+from the code to more closely resemble figure 17.10 
+of the book.
+
+The main difference is that productions that map
+non-terminals to terminals take on 
+
+The CNF conversion from the code produces
+    
+    S -> X7 PREFER
+    X7 -> BOOK INCLUDE
+    PREFER -> prefer
+    BOOK -> book
+    INCLUDE -> include
+
+change the code so that it produces this for terminal
+
+    S -> BOOK
+    S -> PREFER
+    S -> INCLUDE
+
+But the book has
+
+    S -> book | include | prefer
+
+=================================================
+Non-terminals (phrases)
+=================================================
+Sentence
+('S', ['NP', 'VP']),
+('S', ['X1', 'VP']),
+('X1', ['Aux', 'NP']),
+('S', ['X7', 'PREFER'])           S -> book | include | prefer
+('S', ['Verb', 'NP']),
+('S', ['X2', 'PP']),
+('S', ['Verb', 'PP']),
+('S', ['VP', 'PP']),
+------------------------------------
+Noun Phrase
+('NP', ['Det', 'Nominal']),
+('NP', ['HOUSTON', 'NWA']),       NP -> TWA | Houston
+('NP', ['X8', 'ME']),             NP -> I | she| me
+------------------------------------
+Nominal
+('Nominal', ['X6', 'MONEY']),     Nom -> book | flight | meal | money
+('Nominal', ['Nominal', 'Noun']),
+('Nominal', ['Nominal', 'PP']),
+------------------------------------
+Verb Phrase
+('VP', ['X7', 'PREFER']),        VP -> book | include | prefer
+('VP', ['Verb', 'NP']),
+('VP', ['X2', 'PP']),
+('X2', ['Verb', 'NP']),
+('VP', ['Verb', 'PP']),
+('VP', ['VP', 'PP']),
+------------------------------------
+Prepositional Phrase
+('PP', ['Preposition', 'NP']),
+------------------------------------
+
+
+=================================================
+Terminals (words)
+=================================================
+Determiners
+('Det', ['X4', 'A']),
+('X4', ['X3', 'THE']),
+('X3', ['THAT', 'THIS']),
+('A', ['a']),
+('THE', ['the']),
+('THAT', ['that']),
+('THIS', ['this']),
+------------------------------------
+Nouns
+('Noun', ['X6', 'MONEY']),
+('X6', ['X5', 'MEAL']),
+('X5', ['BOOK', 'FLIGHT']),
+('MONEY', ['money']),
+('MEAL', ['meal']),
+('FLIGHT', ['flight']),
+('BOOK', ['book']),
+------------------------------------
+Verbs
+('Verb', ['X7', 'PREFER']),
+('X7', ['BOOK', 'INCLUDE']),
+('PREFER', ['prefer']),
+('INCLUDE', ['include']),
+------------------------------------
+Pronouns
+('Pronoun', ['X8', 'ME']),
+('X8', ['I', 'SHE']),
+('ME', ['me']),
+('I', ['i']),
+------------------------------------
+Proper Nouns
+('Proper-Noun', ['HOUSTON', 'NWA']),
+('HOUSTON', ['houston']),
+('NWA', ['nwa'])
+------------------------------------
+Auxiliary
+('Aux', ['does']),
+('DOES', ['does']),
+------------------------------------
+Prepositions
+('Preposition', ['X11', 'THROUGH'])
+('X11', ['X10', 'NEAR']),
+('X10', ['X9', 'ON']),
+('X9', ['FROM', 'TO']),
+('THROUGH', ['through']),
+('NEAR', ['near']),
+('ON', ['on']),
+('FROM', ['from']),
+('TO', ['to']),
+------------------------------------
